@@ -1,0 +1,43 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: jhoestevam
+      changes:
+        - createTable:
+            tableName: book
+            columns:
+              - column:
+                  name: id
+                  type: varchar(36)
+                  autoIncrement: false
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: author
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(255)
+              - column:
+                  name: genre
+                  type: varchar(255)
+              - column:
+                  name: language
+                  type: varchar(255)
+              - column:
+                  name: publisher
+                  type: varchar(255)
+              - column:
+                  name: publication_date
+                  type: date
+              - column:
+                  name: number_of_pages
+                  type: int

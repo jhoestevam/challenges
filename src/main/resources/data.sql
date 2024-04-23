@@ -1,0 +1,4 @@
+INSERT INTO Book (id, title, author, description, genre, language, publisher, publication_date, number_of_pages)
+VALUES ('9bfe0a02-7d6e-42ad-a680-8a1ab61ebc9e', 'The Great Gatsby', 'F. Scott Fitzgerald', 'A novel about the American dream', 'Novel', 'English', 'Charles Scribner''s Sons', '1925-04-10', '218'),
+       ('44fc58e7-37f6-41df-b0b9-ab72395f1895', 'To Kill a Mockingbird', 'Harper Lee', 'A novel seen through the eyes of Scout', 'Southern Gothic, Bildungsroman', 'English', 'J. B. Lippincott & Co.', '1960-07-11', '281'),
+       ('3516977d-ac11-47fb-951b-3db20590d8bb', '1984', 'George Orwell', 'A novel about a dystopian future', 'Dystopian, political fiction, social science fiction', 'English', 'Secker & Warburg', '1949-06-08', '328');

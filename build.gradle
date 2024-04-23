@@ -9,7 +9,7 @@ group = 'br.challenge'
 version = '0.0.1-SNAPSHOT'
 
 java {
-	sourceCompatibility = '22'
+	sourceCompatibility = '21'
 }
 
 repositories {
@@ -27,7 +27,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.liquibase:liquibase-core'
-	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
+	implementation 'org.springframework.boot:spring-boot-starter-cache'
+	implementation 'io.micrometer:micrometer-core'
+//	implementation 'de.codecentric:spring-boot-admin-starter-server'
+	//developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
