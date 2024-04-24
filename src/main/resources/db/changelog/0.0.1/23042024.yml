@@ -1,0 +1,54 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: jhoestevam
+      changes:
+        - createTable:
+            tableName: book_review
+            columns:
+              - column:
+                  name: id
+                  type: varchar(36)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: review
+                  type: varchar(255)
+              - column:
+                  name: author
+                  type: varchar(255)
+              - column:
+                  name: rating
+                  type: int
+              - column:
+                  name: book_id
+                  type: varchar(36)
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_book_review_book
+                    references: book(id)
+        - createTable:
+            tableName: book_reservation
+            columns:
+              - column:
+                  name: id
+                  type: varchar(36)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: client_cnpj_cpf
+                  type: varchar(14)
+              - column:
+                  name: expiration_date
+                  type: date
+              - column:
+                  name: book_id
+                  type: varchar(255)
+        - addForeignKeyConstraint:
+            constraintName: fk_book_reservation_book
+            baseTableName: book_reservation
+            baseColumnNames: book_id
+            referencedTableName: book
+            referencedColumnNames: id

@@ -28,6 +28,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.liquibase:liquibase-core'
 	implementation 'org.springframework.boot:spring-boot-starter-cache'
+	implementation 'com.github.ben-manes.caffeine:caffeine:2.8.8'
 	implementation 'io.micrometer:micrometer-core'
 //	implementation 'de.codecentric:spring-boot-admin-starter-server'
 	//developmentOnly 'org.springframework.boot:spring-boot-docker-compose'

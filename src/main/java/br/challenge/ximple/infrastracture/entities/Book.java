@@ -1,11 +1,11 @@
 package br.challenge.ximple.infrastracture.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Digits;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "book")
@@ -15,10 +15,10 @@ public class Book {
     @Column(name = "id")
     private String uuid;
 
-    @Column(name = "title", nullable = false)
+    @Column(name = "title")
     private String title;
 
-    @Column(name = "author", nullable = false)
+    @Column(name = "author")
     private String author;
 
     @Column(name = "description")
@@ -37,11 +37,20 @@ public class Book {
     private LocalDate publicationDate;
 
     @Column(name = "number_of_pages")
-    private String numberOfPages;
+    private int numberOfPages;
 
-    //private Reservation reservation;
-    //private BookReview review;
+    @Digits(integer=10, fraction=2)
+    @Column(name = "rate_per_day")
+    private BigDecimal ratePerDay;
 
+    @Column(name = "available")
+    private boolean available;
+
+    @OneToOne(mappedBy = "book")
+    private BookReservation reservation;
+
+    @OneToMany(mappedBy = "book")
+    private List<BookReview> reviews;
 
     public String getUuid() {
         return uuid;
@@ -107,11 +116,43 @@ public class Book {
         this.publicationDate = publicationDate;
     }
 
-    public String getNumberOfPages() {
+    public int getNumberOfPages() {
         return numberOfPages;
     }
 
-    public void setNumberOfPages(String numberOfPages) {
+    public void setNumberOfPages(int numberOfPages) {
         this.numberOfPages = numberOfPages;
+    }
+
+    public BigDecimal getRatePerDay() {
+        return ratePerDay;
+    }
+
+    public void setRatePerDay(BigDecimal ratePerDay) {
+        this.ratePerDay = ratePerDay;
+    }
+
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
+
+    public BookReservation getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(BookReservation reservation) {
+        this.reservation = reservation;
+    }
+
+    public List<BookReview> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<BookReview> reviews) {
+        this.reviews = reviews;
     }
 }

@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 2
+      id: 1
       author: jhoestevam
       changes:
         - createTable:
@@ -16,13 +16,9 @@ databaseChangeLog:
               - column:
                   name: title
                   type: varchar(255)
-                  constraints:
-                    nullable: false
               - column:
                   name: author
                   type: varchar(255)
-                  constraints:
-                    nullable: false
               - column:
                   name: description
                   type: varchar(255)
@@ -41,3 +37,9 @@ databaseChangeLog:
               - column:
                   name: number_of_pages
                   type: int
+              - column:
+                  name: rate_per_day
+                  type: decimal(10,2)
+              - column:
+                  name: available
+                  type: boolean
